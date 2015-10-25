@@ -76,7 +76,7 @@ namespace MyFirstProject
 
             Shape square = new Square(2);
             square.showArea();
-
+            
             Console.Write("Hit {0} to exit the program.", "[ENTER]");
             Console.ReadKey();
         }
