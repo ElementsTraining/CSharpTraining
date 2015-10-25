@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyFirstProject
 {
-    public abstract class Form
+    public abstract class Shape
     {
         public double width { get; set; }
         public double height { get; set; }
+        public void showArea()
+        {
+            Console.WriteLine("Area: {0} with the following Dimensions\n\twidth: {1} \n\tand \n\theight: {2}", this.calculateArea(), this.width, this.height);
+        }
         public abstract double calculateArea();
     }
 
-    class Rectangle : Form
+    class Rectangle : Shape
     {
         
         public override double calculateArea()
@@ -30,7 +34,7 @@ namespace MyFirstProject
 
     }
 
-    public class Square : Form
+    public class Square : Shape
     {
         public Square(double side)
         {
@@ -48,11 +52,11 @@ namespace MyFirstProject
     {
         static void Main(string[] args)
         {
-            Form rectangle = new Rectangle(2,4);
-            Console.WriteLine("Rectangle Area: {0} with the following Dimensions\n\twidth: {1} \n\tand \n\theight: {2}",rectangle.calculateArea(),rectangle.width, rectangle.height);
+            Shape rectangle = new Rectangle(2,4);
+            rectangle.showArea();
 
-            Form square = new Square(2);
-            Console.WriteLine("Square Area:  {0} with the following Dimensions\n\twidth: {1} \n\tand \n\theight: {2} ", square.calculateArea(), square.width, square.height);
+            Shape square = new Square(2);
+            square.showArea();
 
             Console.Write("Hit {0} to exit the program.", "[ENTER]");
             Console.ReadKey();
